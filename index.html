@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <!-- FORM-->
+    <form id="form">
+      <div id="form-elements">
+        <h1 id="page-title">TO DO LIST</h1>
+        <input type="text" id="entry" placeholder="Enter Task" />
+        <button type="submit" id="add-button">
+          <i class="fa-solid fa-thumbs-up"></i>
+        </button>
+      </div>
+    </form>
+    <!-- TASK TITLE-->
+    <div class="tasks-header">
+      <h2 id="ongoing-title">Ongoing Tasks</h2>
+      <input
+        type="text"
+        id="ongoing-filter"
+        class="filter"
+        placeholder="Filter"
+      />
+    </div>
+    <!-- TASK INFO-->
+    <div id="ongoing-tasks">
+      <div class="task-info">
+        <div id="task-info-elements">
+          <h3 class="task-name"><i class="fa-solid fa-thumbtack"></i></h3>
+          <h3 class="add-date"><i class="fa-regular fa-calendar"></i></h3>
+        </div>
+      </div>
+      <!-- TASKS -->
+      <div id="task-list">
+        <ul id="tasks">
+          <!-- Added Task Example
+                <li class="task">
+            Çamaşır Asmak
+            <span class="status"
+              ><i class="fa-solid fa-circle-check"></i>
+              <i class="fa-solid fa-circle-xmark"></i>
+            </span>
+            <span class="date">10.12.1994</span>
+          </li>
+             -->
+        </ul>
+      </div>
+    </div>
+    <!-- COMPLETED TASKS TITLE -->
+    <div class="tasks-header">
+      <h2 id="completed-title">Completed Tasks</h2>
+      <input
+        type="text"
+        id="completed-filter"
+        class="filter"
+        placeholder="Filter"
+      />
+    </div>
+    <!-- COMPLETED TASKS INFO -->
+    <div id="completed-tasks">
+      <div class="task-info">
+        <div id="task-info-elements">
+          <h3 class="task-name"><i class="fa-solid fa-thumbtack"></i></h3>
+          <h3 class="add-date"><i class="fa-regular fa-calendar"></i></h3>
+        </div>
+      </div>
+      <!-- COMPLETED TASKS -->
+      <div id="completed-list">
+        <ul id="completed-tasks-list">
+          <!-- Deleted Task Example
+                <li class="task">
+            ATEŞ YAKMAK
+            <span class="status">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </span>
+            <span class="date">10.12.1994</span>
+          </li>
+             -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      src="https://kit.fontawesome.com/5ec7a761dc.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

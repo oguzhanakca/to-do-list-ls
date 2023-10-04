@@ -1,0 +1,138 @@
+body {
+  background-color: #222831;
+}
+form {
+  border: solid #393e46;
+  border-radius: 10px;
+  background-color: #393e46;
+  margin: 5px auto;
+}
+
+li {
+  list-style-type: none;
+  border-bottom: 0.5px solid #020e05;
+  font-size: 20px;
+  margin: 10px 0px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #1e1eaf;
+}
+
+ul {
+  padding: 0 10px;
+}
+
+h3 {
+  display: inline-block;
+}
+
+.date {
+  float: right;
+  padding-right: 20%;
+}
+
+.status {
+  float: right;
+}
+
+.fa-circle-xmark {
+  color: rgba(247, 66, 66, 0.747);
+}
+
+.fa-circle-check {
+  color: rgb(33, 212, 33);
+  margin-right: 2px;
+}
+
+.task-info {
+  border-bottom: 1px solid #263853;
+}
+
+#task-info-elements {
+  margin: 0px 50px;
+  color: #ebc20b;
+}
+
+#page-title {
+  color: #22a0e9;
+  font-size: 36px;
+}
+
+#form-elements {
+  text-align: center;
+  margin: 20px;
+}
+
+#entry {
+  background-color: #9db2bf;
+  width: 40%;
+  padding: 11px 5px;
+  border: 1px solid #9db2bf;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 5px;
+}
+#entry:focus {
+  outline: none;
+  background-color: #9db2bf;
+  border: 1px solid #ff9a00;
+}
+#add-button {
+  background-color: #9db2bf;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: rgb(32, 81, 155);
+}
+
+#ongoing-tasks {
+  border: solid #393e46;
+  border-radius: 10px;
+  background-color: #575c64;
+  margin: 5px auto;
+}
+
+#completed-tasks {
+  border: solid #15da6dad;
+  border-radius: 10px;
+  background-color: #15da6dad;
+  margin: 5px auto;
+}
+
+.tasks-header {
+  margin: 10px;
+  border-bottom: 1px solid #263853;
+}
+
+#ongoing-title {
+  display: inline-block;
+  margin: 10px;
+  color: #d46114;
+}
+
+#completed-title {
+  display: inline-block;
+  margin: 10px;
+  color: #20c990;
+}
+
+.fa-solid {
+  cursor: pointer;
+}
+
+.filter {
+  background-color: #4acaf19a;
+  width: 20%;
+  padding: 8px 5px;
+  border: 1px solid #4acaf19a;
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 5px 15px;
+  float: right;
+}
+
+.add-date {
+  float: right;
+  margin-right: 25%;
+}
