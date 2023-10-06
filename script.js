@@ -2,6 +2,8 @@ let newEntry = document.getElementById("entry");
 let form = document.getElementById("form");
 let onGoingTasksList = document.getElementById("tasks");
 let completedTasksList = document.getElementById("completed-tasks-list");
+let onGoingFilter = document.getElementById("ongoing-filter");
+let completedFilter = document.getElementById("completed-filter");
 
 let onGoingTasks;
 let completedTasks;
@@ -13,6 +15,30 @@ function eventListeners() {
   window.addEventListener("load", getTasksFromLocalStorage);
   onGoingTasksList.addEventListener("click", changeStatusOfTask);
   completedTasksList.addEventListener("click", removeCompletedTaskFromUI);
+  onGoingFilter.addEventListener("keyup", filterTasks);
+  completedFilter.addEventListener("keyup", filterCompletedTasks);
+}
+
+function filterTasks(e) {
+  let filterText = e.target.value;
+  let filteredTasks = [];
+  onGoingTasks.forEach((task) => {
+    if (task.name.toLowerCase().includes(filterText.toLowerCase())) {
+      filteredTasks[filteredTasks.length] = task;
+    }
+  });
+  addOnGoingTaskToUI(filteredTasks);
+}
+
+function filterCompletedTasks(e) {
+  let filterText = e.target.value;
+  let filteredTasks = [];
+  completedTasks.forEach((task) => {
+    if (task.name.toLowerCase().includes(filterText.toLowerCase())) {
+      filteredTasks[filteredTasks.length] = task;
+    }
+  });
+  addCompletedTaskToUI(filteredTasks);
 }
 
 function removeCompletedTaskFromUI(e) {
@@ -31,9 +57,9 @@ function removeCompletedTaskFromUI(e) {
   addCompletedTaskToUI();
 }
 
-function addOnGoingTaskToUI() {
+function addOnGoingTaskToUI(tasks) {
   onGoingTasksList.innerHTML = "";
-  onGoingTasks.forEach((task) => {
+  tasks.forEach((task) => {
     let newTaskUI = `<li class="task">
     ${task.name}
     <span class="status"
@@ -46,9 +72,9 @@ function addOnGoingTaskToUI() {
   });
 }
 
-function addCompletedTaskToUI() {
+function addCompletedTaskToUI(tasks) {
   completedTasksList.innerHTML = "";
-  completedTasks.forEach((task) => {
+  tasks.forEach((task) => {
     let newTaskUI = `<li class="task">
     ${task.name}
     <span class="status"
@@ -73,7 +99,7 @@ function changeStatusOfTask(e) {
       index++;
     });
     localStorage.setItem("todos", JSON.stringify(onGoingTasks));
-    addOnGoingTaskToUI();
+    addOnGoingTaskToUI(onGoingTasks);
   }
   if (e.target.className.includes("fa-circle-check")) {
     let currentTask =
@@ -90,8 +116,8 @@ function changeStatusOfTask(e) {
     completedTasks[completedTasks.length] = completedTask[0];
     localStorage.setItem("completed", JSON.stringify(completedTasks));
     localStorage.setItem("todos", JSON.stringify(onGoingTasks));
-    addOnGoingTaskToUI();
-    addCompletedTaskToUI();
+    addOnGoingTaskToUI(onGoingTasks);
+    addCompletedTaskToUI(completedTasks);
   }
 }
 
@@ -106,7 +132,7 @@ function getOnGoingTasksFromStorage() {
   } else {
     onGoingTasks = [];
   }
-  addOnGoingTaskToUI();
+  addOnGoingTaskToUI(onGoingTasks);
 }
 
 function getCompletedTasksFromStorage() {
@@ -115,7 +141,7 @@ function getCompletedTasksFromStorage() {
   } else {
     completedTasks = [];
   }
-  addCompletedTaskToUI();
+  addCompletedTaskToUI(completedTasks);
 }
 
 function addTask(e) {
@@ -141,6 +167,6 @@ function addTask(e) {
   }
   alreadyCompleted = false;
   alreadyOnGoing = false;
-  addOnGoingTaskToUI();
+  addOnGoingTaskToUI(onGoingTasks);
   e.preventDefault();
 }
